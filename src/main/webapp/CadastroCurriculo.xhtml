@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:io="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <title>Cadastro de currículo</title>
+</head>
+<h:body>
+    <h:form>
+
+        <h:graphicImage value="resources/images/logo-seap-2016.png"/>
+        <br/>
+
+        <h:outputText value="Cadastro de currículo para a vaga de #{cadastroCurriculoBean.vaga}"
+            style="font-weight: bold; font-size: 22px" />
+
+        <br/>
+
+        <h:outputFormat value="Vaga {0} - Cargo {1}" style="color: red">
+            <f:param value="#{cadastroCurriculoBean.vaga}"/>
+            <f:param value="#{cadastroCurriculoBean.cargo}"/>
+        </h:outputFormat>
+
+        <br/><br/>
+
+        <h:outputLabel value="Email"/><br/>
+        <h:inputText size="60"/>
+        <br/>
+
+        <h:outputLabel value="Senha"/><br/>
+        <h:inputSecret size="40"/>
+        <br/>
+
+        <h:outputLabel value="Qualificações"/><br/>
+        <h:inputTextarea cols="60" rows="5"/>
+    </h:form>
+</h:body>
+</html>

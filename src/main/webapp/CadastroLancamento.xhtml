@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:io="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Cadastro de Lançamentos</title>
+        <h:outputStylesheet library="css" name="sistema.css"/>
+    </h:head>
+    <body>
+        <h1>Novo Lançamento</h1>
+
+        <h:form>
+            <h:button value="Novo"      outcome="CadastroLancamento"/>
+            <h:button value="Consulta"  outcome="ConsultaLancamento"/>
+
+            <h:messages showDetail="false" showSummary="true"
+                        styleClass="form-messages" errorClass="error"
+                        infoClass="info"/>
+
+            <h:panelGrid columns="2" styleClass="form-grid" columnClasses="label, campo">
+                <h:outputLabel value="Tipo"/>
+                <h:selectOneRadio value="#{cadastroLancamentoBean.lancamento.tipo}"
+                                  required="true" label="Tipo do lançamento">
+                    <f:selectItems value="#{cadastroLancamentoBean.tiposLancamento}"
+                                   var="tipoLancamento" itemLabel="#{tipoLancamento.descricao}"
+                                   itemValue="tipoLancamento"/>
+                </h:selectOneRadio>
+
+
+                <h:outputLabel value="Pessoa"/>
+                <h:selectOneMenu>
+                    <f:selectItem itemLabel="João de Deus"/>
+                    <f:selectItem itemLabel="João do Vale"/>
+                    <f:selectItem itemLabel="Abelardo Nonato"/>
+                    <f:selectItem itemLabel="José Alberto"/>
+                    <f:selectItem itemLabel="Chico César"/>
+                </h:selectOneMenu>
+
+
+                <h:outputLabel value="Descrição"/>
+                <h:inputText size="60"/>
+
+
+                <h:outputLabel value="Valor"/>
+                <h:inputText size="12"/>
+
+
+                <h:outputLabel/>
+                <h:panelGroup>
+                    <h:selectBooleanCheckbox size="12"/>
+                    <h:outputLabel value="Conta paga"/>
+                </h:panelGroup>
+
+
+                <h:outputLabel value="Data de vencimento"/>
+                <h:inputText size="12"/>
+
+
+                <h:outputLabel value="Data de pagamento"/>
+                <h:inputText size="12"/>
+
+
+                <h:outputLabel/>
+                <h:commandButton value="Cadastrar"/>
+            </h:panelGrid>
+        </h:form>
+    </body>
+</html>

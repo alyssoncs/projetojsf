@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:io="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Consulta de Lançamentos</title>
+
+        <h:outputStylesheet library="css" name="sistema.css"/>
+        <h:outputStylesheet library="css" name="consulta-lancamentos.css"/>
+    </h:head>
+    <h:body>
+        <h1>Lançamentos</h1>
+
+        <h:form>
+            <h:button value="Novo lançamento" outcome="CadastroLancamento"/>
+
+            <h:dataTable var="lancamento" value="#{consultaLancamentoBean.lancamentos}"
+                width="100%" styleClass="grid" headerClass="cabecalho" rowClasses="cor-sim, cor-nao"
+                columnClasses="tipo, pessoa, descricao, valor, vencimento, pagamento, situacao, acoes">
+
+                <h:column>
+                    <h:graphicImage value="resources/images/despesa.png"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <div align="left">Pessoa</div>
+                    </f:facet>
+
+                    <h:outputText value="João Neto"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <div align="left">Descrição</div>
+                    </f:facet>
+
+                    <h:outputText value="Escola filhos"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <div align="left">Valor</div>
+                    </f:facet>
+
+                    <h:outputText value="R$ 750"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <div align="left">Vencimento</div>
+                    </f:facet>
+
+                    <h:outputText value="02/09/2019"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <div align="left">Pagamento</div>
+                    </f:facet>
+
+                    <h:outputText value="11/09/2019"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <div align="left">Situação</div>
+                    </f:facet>
+
+                    <h:outputText value="Em aberto"/>
+                </h:column>
+
+                <h:column>
+                    <h:graphicImage value="resources/images/editar.png"/>
+                    <h:graphicImage value="resources/images/excluir.png"/>
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
